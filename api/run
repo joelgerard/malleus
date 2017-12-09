@@ -1,0 +1,6 @@
+#!/bin/bash
+set -x
+
+docker run -p 8000:8000 -v $(PWD):/src malleus-api gunicorn -b 0.0.0.0:8000 --reload api.app
+
+#docker run  -v $(PWD):/src malleus-api python test.py
