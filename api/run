@@ -1,6 +1,25 @@
 #!/bin/bash
 set -x
 
-docker run -p 8000:8000 -v $(PWD):/src malleus-api gunicorn -b 0.0.0.0:8000 --reload api.app
+
+docker run -e DATASTORE_EMULATOR_HOST='docker.for.mac.localhost:8081' \
+           -e DATASTORE_PROJECT_ID='malleus-local' \
+           -e DATASTORE_DATASET='malleus-local' \
+           -e DATASTORE_EMULATOR_HOST='docker.for.mac.localhost:8081' \
+           -e DATASTORE_EMULATOR_HOST_PATH='docker.for.mac.localhost:8081/datastore' \
+           -e DATASTORE_HOST='http://docker.for.mac.localhost:8081' \
+            -p 8000:8000 -v $(PWD):/src malleus-api gunicorn -b 0.0.0.0:8000 --reload api.app
+
+
 
 #docker run  -v $(PWD):/src malleus-api python test.py
+
+#docker run -it  -v $(PWD):/src malleus-api bash
+
+# docker run -it -e DATASTORE_EMULATOR_HOST='docker.for.mac.localhost:8081' \
+#           -e DATASTORE_PROJECT_ID='malleus-local' \
+#           -e DATASTORE_DATASET='malleus-local' \
+#           -e DATASTORE_EMULATOR_HOST='docker.for.mac.localhost:8081' \
+#           -e DATASTORE_EMULATOR_HOST_PATH='docker.for.mac.localhost:8081/datastore' \
+#           -e DATASTORE_HOST='http://docker.for.mac.localhost:8081' \
+#            -p 8000:8000  malleus-api bash

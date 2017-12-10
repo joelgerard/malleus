@@ -21,3 +21,4 @@ class Request(object):
         # status returned by the framework, but it is included here to
         # illustrate how this may be overridden as needed.
         resp.status = falcon.HTTP_200
+

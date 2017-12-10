@@ -92,14 +92,17 @@ RUN set -ex; \
 		\) -exec rm -rf '{}' +; \
 	rm -f get-pip.py
 
+
 RUN mkdir /src
 
 WORKDIR /src
 
-RUN cd /src \
-    && pip install falcon \
-    && pip install gunicorn
+RUN cd /src
 
 EXPOSE 8000
+
+ADD requirements.txt .
+
+RUN pip install -r requirements.txt
 
 CMD ["python3"]

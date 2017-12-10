@@ -1,0 +1,10 @@
+#!/bin/bash
+set -x
+
+export DATASTORE_DATASET=malleus-local
+export DATASTORE_EMULATOR_HOST=localhost:8081
+export DATASTORE_EMULATOR_HOST_PATH=localhost:8081/datastore
+export DATASTORE_HOST=http://localhost:8081
+export DATASTORE_PROJECT_ID=malleus-local
+
+gunicorn -b 0.0.0.0:8000 --pythonpath api --reload api.app

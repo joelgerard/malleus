@@ -1,0 +1,22 @@
+- Install Java 8 SDK or JRE
+- Install gcloud
+- Install the emulator: gcloud components install cloud-datastore-emulator
+- Init the emulator gcloud beta emulators datastore env-init
+- Inject these env variables into the container
+- Access datastore from the container by accessing docker.for.mac.localhost instead of localhost
+
+
+Then run the docker environment. Or, if you wish to keep going in this one then,
+
+- Install brew  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+- Update path at bottom of bash_profile export PATH=/usr/local/bin:$PATH
+- brew install python3
+- python3.6 -m venv p3-venv
+- source p3-venv/bin/activate
+- pip install -r api/requirements.txt
+- start datastore: gcloud beta emulators datastore start
+- export datastore env vars
+- gunicorn -b 0.0.0.0:8000 --pythonpath api --reload api.app
+
+
+
