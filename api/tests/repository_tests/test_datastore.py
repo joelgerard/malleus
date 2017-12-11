@@ -9,8 +9,6 @@ def datastore():
     return Datastore()
 
 
-# pytest will inject the object returned by the "client" function
-# as an additional parameter.
 def test_update(datastore):
     user = User()
     user.first_name = "Joel"

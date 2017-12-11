@@ -1,8 +1,10 @@
-from datetime import datetime
+from api.domain.timing import Timing
 
 class Timings:
     timings = []
 
-    def add_timing(self, description):
-        self.timings.append({'time': datetime.timestamp(), 'description': description})
+    def add(self, timing):
+        self.timings.append(timing)
 
+    def get_duration(self):
+        return self.timings[-1].end - self.timings[0].start

@@ -23,6 +23,6 @@ class UserGenerator:
 
     def get_random_users(self, num):
         users = []
-        for i in range(1,num):
+        for i in range(1, num):
             users.append(self.get_random_user(i))
         return users
