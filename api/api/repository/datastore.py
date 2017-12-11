@@ -1,6 +1,9 @@
 from google.cloud import datastore
 from google.auth import credentials
+from api.domain.user import User
 import datetime
+import json
+
 
 
 
@@ -21,17 +24,30 @@ class Datastore(object):
 
     def update(self, user):
         client = self.get_client()
-        key = client.key('User')
+        key = client.key('User', user.id)
 
         ent = datastore.Entity(
             key, exclude_from_indexes=['description'])
 
-        ent.update({
-            'created': datetime.datetime.utcnow(),
-            'description': 'asdfadsfasdfasdf',
-            'done': False
-        })
+        ent.update(user.__dict__)
 
         client.put(ent)
 
         return ent.key
+
+    def update_list(self, users):
+        client = self.get_client()
+        ents = []
+        for user in users:
+            ents.append(datastore.Entity(client.key('User',user.id)))
+        client.put_multi(ents)
+
+
+    def get(self, id):
+        client = self.get_client()
+        key = client.key('User', id)
+        ent = client.get(key)
+        user = User()
+        for key in ent.keys():
+            user.__dict__[key] = ent[key]
+        return user

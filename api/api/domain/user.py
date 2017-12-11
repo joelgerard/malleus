@@ -10,5 +10,7 @@ class User:
     state = None
     country = None
 
+    description = None
+
     def __init__(self):
-        self._name = None
+        pass
