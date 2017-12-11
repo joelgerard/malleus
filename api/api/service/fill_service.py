@@ -1,4 +1,10 @@
-class Fill(object):
+from api.repository.datastore import Datastore
+from api.domain.user_generator import UserGenerator
+
+class FillService(object):
 
     def fill_datastore(self, size):
-        pass
+        datastore = Datastore()
+        user_gen = UserGenerator()
+        users = user_gen.get_random_users(size)
+        datastore.update_list(users)

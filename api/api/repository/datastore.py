@@ -5,8 +5,6 @@ import datetime
 import json
 
 
-
-
 class DoNothingCreds(credentials.Credentials):
     def refresh(self, request):
         pass
@@ -39,7 +37,7 @@ class Datastore(object):
         client = self.get_client()
         ents = []
         for user in users:
-            ents.append(datastore.Entity(client.key('User',user.id)))
+            ents.append(datastore.Entity(client.key('User', user.id)))
         client.put_multi(ents)
 
 
