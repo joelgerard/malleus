@@ -19,4 +19,6 @@ Then run the docker environment. Or, if you wish to keep going in this one then,
 - gunicorn -b 0.0.0.0:8000 --pythonpath api --reload api.app
 
 
+To publish to gcloud
+- gcloud container builds submit --tag gcr.io/joelgerard-178218/malleus .
 
