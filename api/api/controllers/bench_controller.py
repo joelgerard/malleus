@@ -3,7 +3,7 @@ import json
 import falcon
 
 
-class Request(object):
+class BenchController(object):
 
     def on_get(self, req, resp):
         doc = {

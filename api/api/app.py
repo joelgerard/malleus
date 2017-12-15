@@ -1,11 +1,11 @@
 import falcon
-from .request import Request
-from .fill import Fill
+from api.controllers.bench_controller import BenchController
+from api.controllers.fill_controller import FillController
 
 api = application = falcon.API()
 
-request = Request()
-api.add_route('/request', request)
+fill_controller = FillController()
+api.add_route('/fill', fill_controller)
 
-fill = Fill()
-api.add_route('/fill', fill)
+bench_controller = BenchController()
+api.add_route('/bench', bench_controller)
