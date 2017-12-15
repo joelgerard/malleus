@@ -1,6 +1,7 @@
 from google.cloud import datastore
 from google.auth import credentials
-from api.domain.user import User
+# TODO: Should this be here?
+from api.api.domain.user import User
 import datetime
 import json
 

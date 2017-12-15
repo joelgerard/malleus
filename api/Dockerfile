@@ -93,12 +93,26 @@ RUN set -ex; \
 	rm -f get-pip.py
 
 
+RUN apt-get update
+RUN apt-get -y install lsb-release
+
+RUN export CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" && \
+    echo "deb http://packages.cloud.google.com/apt $CLOUD_SDK_REPO main" | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list && \
+    curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add - && \
+    apt-get update && apt-get -y install google-cloud-sdk
+
+RUN apt-get -y install google-cloud-sdk-datastore-emulator
+
+RUN gcloud config set project malleus-local
+
 # Used for local dev
 RUN mkdir /src
 RUN cd /src
 EXPOSE 8000
 ADD requirements.txt .
 RUN pip install -r requirements.txt
+
+# ADD run_tests.sh /
 
 
 RUN mkdir /web

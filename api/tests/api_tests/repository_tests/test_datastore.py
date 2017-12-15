@@ -1,7 +1,8 @@
 import pytest
-from api.repository.datastore import Datastore
-from api.domain.user import User
-from api.domain.user_generator import UserGenerator
+# TODO: Pathing sucks here.
+from api.api.repository.datastore import Datastore
+from api.api.domain.user import User
+from api.api.domain.user_generator import UserGenerator
 
 
 @pytest.fixture
