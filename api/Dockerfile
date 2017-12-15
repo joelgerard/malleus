@@ -93,16 +93,18 @@ RUN set -ex; \
 	rm -f get-pip.py
 
 
+# Used for local dev
 RUN mkdir /src
-
-WORKDIR /src
-
 RUN cd /src
-
 EXPOSE 8000
-
 ADD requirements.txt .
-
 RUN pip install -r requirements.txt
 
-CMD ["python3"]
+
+RUN mkdir /web
+RUN cd /web
+ADD . /web
+RUN pip install -r requirements.txt
+WORKDIR /web
+
+CMD ["gunicorn","-b","0.0.0.0:80", "api.app"]
