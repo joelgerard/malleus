@@ -2,8 +2,6 @@ version: "3"
 services:
   gdatastore:
     build: ./datastore/
-    #networks:
-    # - overlay
     ports:
      - "8081:8081"
 
@@ -21,10 +19,6 @@ services:
           echo Connected!;
           pytest /src/api/tests;
         "
-      #links:
-      # - datastore
-      #networks:
-      # - overlay
       depends_on:
         - gdatastore
       ports:
@@ -35,6 +29,3 @@ services:
        - DATASTORE_EMULATOR_HOST=gdatastore:8081
        - DATASTORE_EMULATOR_HOST_PATH=gdatastore:8081/datastore
        - DATASTORE_HOST=gdatastore:8081
-
-#networks:
-#  overlay:
