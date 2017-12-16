@@ -1,5 +1,5 @@
-from api.api.repository.datastore import Datastore
-from api.api.domain.user_generator import UserGenerator
+from api.repository.datastore import Datastore
+from api.domain.user_generator import UserGenerator
 
 class FillService(object):
 

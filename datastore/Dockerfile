@@ -105,21 +105,5 @@ RUN apt-get -y install google-cloud-sdk-datastore-emulator
 
 RUN gcloud config set project malleus-local
 
-# Used for local dev
-RUN mkdir /src
-RUN cd /src
-EXPOSE 8000
-ADD requirements.txt .
-RUN pip install -r requirements.txt
 
-# ADD run_tests.sh /
-
-
-RUN mkdir /web
-RUN cd /web
-ADD . /web
-RUN pip install -r requirements.txt
-WORKDIR /web
-
-# CMD ["gunicorn","-b","0.0.0.0:80", "api.app"]
-CMD ["pytest","tests"]
+CMD ["gcloud","beta","emulators","datastore","start"]

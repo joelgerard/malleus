@@ -22,3 +22,8 @@ Then run the docker environment. Or, if you wish to keep going in this one then,
 To publish to gcloud
 - gcloud container builds submit --tag gcr.io/joelgerard-178218/malleus .
 
+Docker-compose
+newgrp docker
+  ~/.local/bin/docker-compose
+
+

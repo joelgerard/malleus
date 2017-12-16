@@ -1,0 +1,12 @@
+version: '3'
+services:
+  datastore:
+    build: ./datastore/
+    ports:
+     - "8432:8432"
+  web:
+      build: ./api/
+      volumes:
+       - ./api:/src
+      ports:
+       - "8000:8000"

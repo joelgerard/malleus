@@ -1,6 +1,6 @@
-from api.api.repository.datastore import Datastore
-from api.api.domain.timings import Timings
-from api.api.domain.timing import Timing
+from api.repository.datastore import Datastore
+from api.domain.timings import Timings
+from api.domain.timing import Timing
 
 class BenchService:
 
