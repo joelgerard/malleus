@@ -1,9 +1,6 @@
 #!/bin/bash
 set -x
 
-nohup gcloud beta emulators datastore start &
-
-$1
 
 #docker run -e DATASTORE_EMULATOR_HOST='docker.for.mac.localhost:8081' \
 #           -e DATASTORE_PROJECT_ID='malleus-local' \
