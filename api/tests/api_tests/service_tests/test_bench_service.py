@@ -1,6 +1,6 @@
 import pytest
-from api.service.bench_service import BenchService
-from api.service.fill_service import FillService
+from api.api.service.bench_service import BenchService
+from api.api.service.fill_service import FillService
 import time
 
 

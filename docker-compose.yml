@@ -1,12 +1,40 @@
-version: '3'
+version: "3"
 services:
-  datastore:
+  gdatastore:
     build: ./datastore/
+    #networks:
+    # - overlay
     ports:
-     - "8432:8432"
+     - "8081:8081"
+
   web:
       build: ./api/
       volumes:
-       - ./api:/src
+       - .:/src
+      command: >
+        /bin/bash -c "
+          while ! nc -z gdatastore 8081;
+          do
+            echo sleeping;
+            sleep 1;
+          done;
+          echo Connected!;
+          pytest /src/api/tests;
+        "
+      #links:
+      # - datastore
+      #networks:
+      # - overlay
+      depends_on:
+        - gdatastore
       ports:
        - "8000:8000"
+      environment:
+       - DATASTORE_PROJECT_ID=malleus-local
+       - DATASTORE_DATASET=malleus-local
+       - DATASTORE_EMULATOR_HOST=gdatastore:8081
+       - DATASTORE_EMULATOR_HOST_PATH=gdatastore:8081/datastore
+       - DATASTORE_HOST=gdatastore:8081
+
+#networks:
+#  overlay:

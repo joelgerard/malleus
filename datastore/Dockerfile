@@ -105,5 +105,10 @@ RUN apt-get -y install google-cloud-sdk-datastore-emulator
 
 RUN gcloud config set project malleus-local
 
+RUN apt-get update && apt-get install -y supervisor
+RUN mkdir -p /var/log/supervisor
+COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
-CMD ["gcloud","beta","emulators","datastore","start"]
+CMD ["/usr/bin/supervisord"]
+
+#CMD ["gcloud","beta","emulators","datastore","start"]

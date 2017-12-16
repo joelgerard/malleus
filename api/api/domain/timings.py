@@ -1,4 +1,4 @@
-from api.domain.timing import Timing
+from api.api.domain.timing import Timing
 
 class Timings:
     timings = []

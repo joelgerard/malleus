@@ -43,14 +43,7 @@ if is_test:
         subprocess.Popen(["pytest", "api/tests"],env=env).wait()
     if is_docker:
         # TODO: What if docker image is not built?
-        cmd = """
-        docker run -e DATASTORE_EMULATOR_HOST='docker.for.mac.localhost:8081' \
-           -e DATASTORE_PROJECT_ID='malleus-local' \
-           -e DATASTORE_DATASET='malleus-local' \
-           -e DATASTORE_EMULATOR_HOST='localhost:8081' \
-           -e DATASTORE_EMULATOR_HOST_PATH='localhost:8081/datastore' \
-           -e DATASTORE_HOST='http://localhost:8081' \
-           -v """ + os.getcwd() + """/api:/src malleus-api /src/api/run_tests.sh """
+        cmd = "docker-compose up --abort-on-container-exit "
         subprocess.Popen(cmd.split()).wait() #TODO: Does ctrl-c kill this process?
 
 # if is_clean:

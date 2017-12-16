@@ -121,5 +121,10 @@ ADD . /web
 RUN pip install -r requirements.txt
 WORKDIR /web
 
+RUN apt-get install -y netcat
+
 # CMD ["gunicorn","-b","0.0.0.0:80", "api.app"]
-CMD ["pytest","tests"]
+#CMD ["/src/api/tests/run_tests.sh"]
+
+#CMD ["cat","/src/api/tests/run_tests.sh"]
+CMD ["pytest","/src/api/tests"]
