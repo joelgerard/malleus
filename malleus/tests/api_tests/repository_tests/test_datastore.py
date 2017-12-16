@@ -1,8 +1,8 @@
 import pytest
 # TODO: Pathing sucks here.
-from api.api.repository.datastore import Datastore
-from api.api.domain.user import User
-from api.api.domain.user_generator import UserGenerator
+from malleus.api.repository.datastore import Datastore
+from malleus.api.domain.user import User
+from malleus.api.domain.user_generator import UserGenerator
 
 
 @pytest.fixture

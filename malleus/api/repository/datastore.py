@@ -1,7 +1,7 @@
 from google.cloud import datastore
 from google.auth import credentials
 # TODO: Should this be here?
-from api.api.domain.user import User
+from malleus.api.domain.user import User
 import datetime
 import json
 

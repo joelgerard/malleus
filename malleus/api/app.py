@@ -1,6 +1,6 @@
 import falcon
-from api.controllers.bench_controller import BenchController
-from api.controllers.fill_controller import FillController
+from malleus.api.controllers.bench_controller import BenchController
+from malleus.api.controllers.fill_controller import FillController
 
 api = application = falcon.API()
 

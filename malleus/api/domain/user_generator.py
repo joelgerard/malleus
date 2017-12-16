@@ -1,4 +1,4 @@
-from api.api.domain.user import User
+from malleus.api.domain.user import User
 import random
 import string
 

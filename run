@@ -40,7 +40,7 @@ env["DATASTORE_PROJECT_ID"] = "malleus-local"
 
 if is_test:
     if is_local:
-        subprocess.Popen(["pytest", "api/tests"],env=env).wait()
+        subprocess.Popen(["pytest", "malleus/tests"],env=env).wait()
     if is_docker:
         # TODO: What if docker image is not built?
         cmd = "docker-compose up --abort-on-container-exit "

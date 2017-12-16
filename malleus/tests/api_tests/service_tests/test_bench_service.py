@@ -1,7 +1,7 @@
 import pytest
-from api.api.service.bench_service import BenchService
-from api.api.service.fill_service import FillService
-import time
+from malleus.api.service.bench_service import BenchService
+from malleus.api.service.fill_service import FillService
+
 
 
 @pytest.fixture
@@ -12,8 +12,6 @@ def test_bench_datastore_direct(bench_service):
     limit = 5
     fill_service = FillService()
     fill_service.fill_datastore(limit)
-    start = time.time()
     timings = bench_service.bench_datastore_direct(limit)
-    end = time.time()
 
-    assert (end - start) >= timings.get_duration()
+    assert timings.get_duration() > 0

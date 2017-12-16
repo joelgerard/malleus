@@ -1,6 +1,6 @@
-from api.api.repository.datastore import Datastore
-from api.api.domain.timings import Timings
-from api.api.domain.timing import Timing
+from malleus.api.repository.datastore import Datastore
+from malleus.api.domain.timings import Timings
+from malleus.api.domain.timing import Timing
 
 class BenchService:
 
