@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package malleus.api.service;
+
+import "malleus/api/domain/protos/timings.proto";
+
+message BenchRequest {
+  int32 num = 1;
+}
+
+service BenchService {
+  rpc BenchDataStore (BenchRequest) returns (malleus.api.domain.Timings) {}
+}

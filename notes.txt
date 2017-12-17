@@ -27,3 +27,14 @@ newgrp docker
   ~/.local/bin/docker-compose
 
 
+  brew install protobuf
+  protoc -I=. --python_out=. malleus/api/domain/protos/timing.proto
+
+  python -m pip install grpcio
+  python -m pip install grpcio-tools
+  https://grpc.io/docs/quickstart/python.html
+
+  python -m grpc_tools.protoc -I=. --python_out=. --grpc_python_out=. ../../protos/helloworld.proto
+
+
+

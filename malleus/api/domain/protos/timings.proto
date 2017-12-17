@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+import "malleus/api/domain/protos/timing.proto";
+
+package malleus.api.domain;
+
+message Timings {
+  repeated Timing timings = 1;
+}

@@ -45,6 +45,9 @@ if is_test:
         # TODO: What if docker image is not built?
         cmd = "docker-compose up --abort-on-container-exit "
         subprocess.Popen(cmd.split()).wait() #TODO: Does ctrl-c kill this process?
+if is_run:
+    if is_local:
+        subprocess.Popen(["gunicorn","-b","0.0.0.0:8000","--pythonpath","malleus","--reload","api.app"],env=env).wait()
 
 # if is_clean:
 #    find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf
