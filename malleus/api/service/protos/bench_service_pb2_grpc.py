@@ -15,8 +15,13 @@ class BenchServiceStub(object):
     Args:
       channel: A grpc.Channel.
     """
-    self.bench_datastore = channel.unary_unary(
-        '/malleus.api.service.BenchService/bench_datastore',
+    self.read = channel.unary_unary(
+        '/malleus.api.service.BenchService/read',
+        request_serializer=malleus_dot_api_dot_service_dot_protos_dot_bench__service__pb2.BenchRequest.SerializeToString,
+        response_deserializer=malleus_dot_api_dot_domain_dot_protos_dot_timings__pb2.Timings.FromString,
+        )
+    self.write = channel.unary_unary(
+        '/malleus.api.service.BenchService/write',
         request_serializer=malleus_dot_api_dot_service_dot_protos_dot_bench__service__pb2.BenchRequest.SerializeToString,
         response_deserializer=malleus_dot_api_dot_domain_dot_protos_dot_timings__pb2.Timings.FromString,
         )
@@ -26,7 +31,14 @@ class BenchServiceServicer(object):
   # missing associated documentation comment in .proto file
   pass
 
-  def bench_datastore(self, request, context):
+  def read(self, request, context):
+    # missing associated documentation comment in .proto file
+    pass
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
+  def write(self, request, context):
     # missing associated documentation comment in .proto file
     pass
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -36,8 +48,13 @@ class BenchServiceServicer(object):
 
 def add_BenchServiceServicer_to_server(servicer, server):
   rpc_method_handlers = {
-      'bench_datastore': grpc.unary_unary_rpc_method_handler(
-          servicer.bench_datastore,
+      'read': grpc.unary_unary_rpc_method_handler(
+          servicer.read,
+          request_deserializer=malleus_dot_api_dot_service_dot_protos_dot_bench__service__pb2.BenchRequest.FromString,
+          response_serializer=malleus_dot_api_dot_domain_dot_protos_dot_timings__pb2.Timings.SerializeToString,
+      ),
+      'write': grpc.unary_unary_rpc_method_handler(
+          servicer.write,
           request_deserializer=malleus_dot_api_dot_service_dot_protos_dot_bench__service__pb2.BenchRequest.FromString,
           response_serializer=malleus_dot_api_dot_domain_dot_protos_dot_timings__pb2.Timings.SerializeToString,
       ),

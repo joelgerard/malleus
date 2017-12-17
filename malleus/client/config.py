@@ -1,5 +1,5 @@
 host = {}
-host["west"] = "http://localhost:8000"
-host["central"] = "http://localhost:8000"
-host["east"] = "http://localhost:8000"
+host["west"] = "localhost:50051"
+host["central"] = "localhost:50051"
+host["east"] = "localhost:50051"
 

@@ -1,12 +1,22 @@
 import config
 import urllib.request
+from malleus.api.service.protos.bench_service_pb2 import BenchRequest
+import grpc
+
+import malleus.api.service.protos.bench_service_pb2_grpc as bench_service_pb2_grpc
 
 class CallService:
 
-    def call_filler(self, region, size):
-        print(config.host[region])
+    def __init__(self, region):
+        channel = grpc.insecure_channel(config.host[region])
+        self.stub = bench_service_pb2_grpc.BenchServiceStub(channel)
 
-        print(urllib.request.urlopen(config.host[region]+"/fill?size="+ str(size)).read())
+    def write(self, num):
+        bench_request = BenchRequest()
+        bench_request.num = num
+        return self.stub.write(bench_request)
 
-    def call_bench_datastore(self, region, num):
-        print(urllib.request.urlopen(config.host[region] + "/bench?num=" + str(num)).read())
+    def read(self, num):
+        bench_request = BenchRequest()
+        bench_request.num = num
+        return self.stub.read(bench_request)

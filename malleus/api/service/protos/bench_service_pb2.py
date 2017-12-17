@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='malleus/api/service/protos/bench_service.proto',
   package='malleus.api.service',
   syntax='proto3',
-  serialized_pb=_b('\n.malleus/api/service/protos/bench_service.proto\x12\x13malleus.api.service\x1a\'malleus/api/domain/protos/timings.proto\"\x1b\n\x0c\x42\x65nchRequest\x12\x0b\n\x03num\x18\x01 \x01(\x05\x32\x63\n\x0c\x42\x65nchService\x12S\n\x0f\x62\x65nch_datastore\x12!.malleus.api.service.BenchRequest\x1a\x1b.malleus.api.domain.Timings\"\x00\x62\x06proto3')
+  serialized_pb=_b('\n.malleus/api/service/protos/bench_service.proto\x12\x13malleus.api.service\x1a\'malleus/api/domain/protos/timings.proto\"\x1b\n\x0c\x42\x65nchRequest\x12\x0b\n\x03num\x18\x01 \x01(\x05\x32\xa3\x01\n\x0c\x42\x65nchService\x12H\n\x04read\x12!.malleus.api.service.BenchRequest\x1a\x1b.malleus.api.domain.Timings\"\x00\x12I\n\x05write\x12!.malleus.api.service.BenchRequest\x1a\x1b.malleus.api.domain.Timings\"\x00\x62\x06proto3')
   ,
   dependencies=[malleus_dot_api_dot_domain_dot_protos_dot_timings__pb2.DESCRIPTOR,])
 
@@ -75,13 +75,22 @@ _BENCHSERVICE = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   options=None,
-  serialized_start=141,
-  serialized_end=240,
+  serialized_start=142,
+  serialized_end=305,
   methods=[
   _descriptor.MethodDescriptor(
-    name='bench_datastore',
-    full_name='malleus.api.service.BenchService.bench_datastore',
+    name='read',
+    full_name='malleus.api.service.BenchService.read',
     index=0,
+    containing_service=None,
+    input_type=_BENCHREQUEST,
+    output_type=malleus_dot_api_dot_domain_dot_protos_dot_timings__pb2._TIMINGS,
+    options=None,
+  ),
+  _descriptor.MethodDescriptor(
+    name='write',
+    full_name='malleus.api.service.BenchService.write',
+    index=1,
     containing_service=None,
     input_type=_BENCHREQUEST,
     output_type=malleus_dot_api_dot_domain_dot_protos_dot_timings__pb2._TIMINGS,
