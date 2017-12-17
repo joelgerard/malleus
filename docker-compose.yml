@@ -4,7 +4,10 @@ services:
     build: ./datastore/
     ports:
      - "8081:8081"
-
+  mongodb:
+    image: mongo:3.6.0-jessie
+    ports:
+     - "27017:27017"
   web:
       build: ./malleus/
       volumes:
@@ -21,6 +24,7 @@ services:
         "
       depends_on:
         - gdatastore
+        - mongodb
       ports:
        - "8000:8000"
       environment:
@@ -29,3 +33,4 @@ services:
        - DATASTORE_EMULATOR_HOST=gdatastore:8081
        - DATASTORE_EMULATOR_HOST_PATH=gdatastore:8081/datastore
        - DATASTORE_HOST=gdatastore:8081
+       - MONGODB_HOST=mongodb:27017
