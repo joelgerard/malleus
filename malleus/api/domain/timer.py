@@ -3,12 +3,16 @@ import time
 
 
 class Timer:
-    def __init__(self):
-        self.timings = Timings()
+    def __init__(self, timings=None):
+        if timings is None:
+            self.timings = Timings()
+        else:
+            self.timings = timings
 
     def start(self, description):
         # TODO: Blegh
         timing = self.timings.timings.add()
+        # TODO: replace with timeit?
         timing.start = time.time()
         timing.description = description
         return timing

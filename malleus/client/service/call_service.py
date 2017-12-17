@@ -1,6 +1,6 @@
 import config
-import urllib.request
 from malleus.api.service.protos.bench_service_pb2 import BenchRequest
+from malleus.api.domain.timer import Timer
 import grpc
 
 import malleus.api.service.protos.bench_service_pb2_grpc as bench_service_pb2_grpc
@@ -19,4 +19,8 @@ class CallService:
     def read(self, num):
         bench_request = BenchRequest()
         bench_request.num = num
-        return self.stub.read(bench_request)
+        timings = self.stub.read(bench_request)
+        timer = Timer(timings)
+        print(timer.get_duration())
+
+        return timings

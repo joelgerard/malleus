@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='malleus/api/domain/protos/timing.proto',
   package='malleus.api.domain',
   syntax='proto3',
-  serialized_pb=_b('\n&malleus/api/domain/protos/timing.proto\x12\x12malleus.api.domain\"9\n\x06Timing\x12\r\n\x05start\x18\x01 \x01(\x02\x12\x0b\n\x03\x65nd\x18\x02 \x01(\x02\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\tb\x06proto3')
+  serialized_pb=_b('\n&malleus/api/domain/protos/timing.proto\x12\x12malleus.api.domain\"9\n\x06Timing\x12\r\n\x05start\x18\x01 \x01(\x01\x12\x0b\n\x03\x65nd\x18\x02 \x01(\x01\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\tb\x06proto3')
 )
 
 
@@ -34,14 +34,14 @@ _TIMING = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='start', full_name='malleus.api.domain.Timing.start', index=0,
-      number=1, type=2, cpp_type=6, label=1,
+      number=1, type=1, cpp_type=5, label=1,
       has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='end', full_name='malleus.api.domain.Timing.end', index=1,
-      number=2, type=2, cpp_type=6, label=1,
+      number=2, type=1, cpp_type=5, label=1,
       has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,

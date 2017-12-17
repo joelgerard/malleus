@@ -6,7 +6,7 @@ import malleus.api.service.protos.bench_service_pb2_grpc as bench_service_pb2_gr
 
 class BenchService(bench_service_pb2_grpc.BenchServiceServicer):
 
-    def read(self, request: BenchRequest, context):
+    def read(self, request: BenchRequest, context = None):
         num = request.num
         datastore = Datastore()
         timer = Timer()
@@ -16,9 +16,9 @@ class BenchService(bench_service_pb2_grpc.BenchServiceServicer):
             user = datastore.get(i)
             timer.end(timing)
 
-        return timer
+        return timer.timings
 
-    def write(self, request: BenchRequest, context):
+    def write(self, request: BenchRequest, context = None):
         size = request.num
         datastore = Datastore()
         timer = Timer()
@@ -28,4 +28,4 @@ class BenchService(bench_service_pb2_grpc.BenchServiceServicer):
         datastore.update_list(users)
         timer.end(timing)
 
-        return timer
+        return timer.timings
