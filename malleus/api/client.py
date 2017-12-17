@@ -15,7 +15,7 @@ def run():
     stub = bench_service_pb2_grpc.BenchServiceStub(channel)
     #stub = helloworld_pb2_grpc.GreeterStub(channel)
 
-    response = stub.BenchDataStore(BenchRequest(num=22))
+    response = stub.bench_datastore(BenchRequest(num=22))
 
 
     print("Greeter client received ok " + str(response is not None))

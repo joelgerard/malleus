@@ -15,8 +15,8 @@ class BenchServiceStub(object):
     Args:
       channel: A grpc.Channel.
     """
-    self.BenchDataStore = channel.unary_unary(
-        '/malleus.api.service.BenchService/BenchDataStore',
+    self.bench_datastore = channel.unary_unary(
+        '/malleus.api.service.BenchService/bench_datastore',
         request_serializer=malleus_dot_api_dot_service_dot_protos_dot_bench__service__pb2.BenchRequest.SerializeToString,
         response_deserializer=malleus_dot_api_dot_domain_dot_protos_dot_timings__pb2.Timings.FromString,
         )
@@ -26,7 +26,7 @@ class BenchServiceServicer(object):
   # missing associated documentation comment in .proto file
   pass
 
-  def BenchDataStore(self, request, context):
+  def bench_datastore(self, request, context):
     # missing associated documentation comment in .proto file
     pass
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -36,8 +36,8 @@ class BenchServiceServicer(object):
 
 def add_BenchServiceServicer_to_server(servicer, server):
   rpc_method_handlers = {
-      'BenchDataStore': grpc.unary_unary_rpc_method_handler(
-          servicer.BenchDataStore,
+      'bench_datastore': grpc.unary_unary_rpc_method_handler(
+          servicer.bench_datastore,
           request_deserializer=malleus_dot_api_dot_service_dot_protos_dot_bench__service__pb2.BenchRequest.FromString,
           response_serializer=malleus_dot_api_dot_domain_dot_protos_dot_timings__pb2.Timings.SerializeToString,
       ),

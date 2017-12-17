@@ -34,7 +34,8 @@ newgrp docker
   python -m pip install grpcio-tools
   https://grpc.io/docs/quickstart/python.html
 
-  python -m grpc_tools.protoc -I=. --python_out=. --grpc_python_out=. ../../protos/helloworld.proto
+
+  python -m grpc_tools.protoc -I=. --python_out=. --grpc_python_out=. malleus/api/service/protos/bench_service.proto
 
 
 

@@ -1,5 +1,4 @@
 from malleus.api.domain.protos.timings_pb2 import Timings
-from malleus.api.domain.protos.timing_pb2 import Timing
 import time
 
 

@@ -23,17 +23,12 @@ import grpc
 
 import service.protos.bench_service_pb2_grpc as bench_service_pb2_grpc
 
+from malleus.api.service.bench_service import BenchService
 from malleus.api.domain.protos.timings_pb2 import Timings
 
 #from malleus.api.service.protos.bench_service_pb2 import
 
 _ONE_DAY_IN_SECONDS = 60 * 60 * 24
-
-
-class BenchService(bench_service_pb2_grpc.BenchServiceServicer):
-
-    def BenchDataStore(self, request, context):
-        return Timings()
 
 
 def serve():

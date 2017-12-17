@@ -9,5 +9,6 @@ message BenchRequest {
 }
 
 service BenchService {
-  rpc BenchDataStore (BenchRequest) returns (malleus.api.domain.Timings) {}
+  rpc read (BenchRequest) returns (malleus.api.domain.Timings) {}
+  rpc write (BenchRequest) returns (malleus.api.domain.Timings) {}
 }

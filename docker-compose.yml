@@ -6,7 +6,7 @@ services:
      - "8081:8081"
 
   web:
-      build: ./api/
+      build: ./malleus/
       volumes:
        - .:/src
       command: >
@@ -17,7 +17,7 @@ services:
             sleep 1;
           done;
           echo Connected!;
-          pytest /src/api/tests;
+          pytest /src/malleus/tests;
         "
       depends_on:
         - gdatastore
