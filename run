@@ -38,6 +38,7 @@ env["DATASTORE_EMULATOR_HOST_PATH"] = "localhost:8081/datastore"
 env["DATASTORE_HOST"] = "http://localhost:8081"
 env["DATASTORE_PROJECT_ID"] = "malleus-local"
 env["MONGODB_HOST"] = "localhost:27017"
+env["PYTHONPATH"] = "./"
 
 if is_test:
     if is_local:

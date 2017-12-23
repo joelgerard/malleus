@@ -20,11 +20,33 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='malleus/api/service/protos/bench_service.proto',
   package='malleus.api.service',
   syntax='proto3',
-  serialized_pb=_b('\n.malleus/api/service/protos/bench_service.proto\x12\x13malleus.api.service\x1a\'malleus/api/domain/protos/timings.proto\"\x1b\n\x0c\x42\x65nchRequest\x12\x0b\n\x03num\x18\x01 \x01(\x05\x32\xa3\x01\n\x0c\x42\x65nchService\x12H\n\x04read\x12!.malleus.api.service.BenchRequest\x1a\x1b.malleus.api.domain.Timings\"\x00\x12I\n\x05write\x12!.malleus.api.service.BenchRequest\x1a\x1b.malleus.api.domain.Timings\"\x00\x62\x06proto3')
+  serialized_pb=_b('\n.malleus/api/service/protos/bench_service.proto\x12\x13malleus.api.service\x1a\'malleus/api/domain/protos/timings.proto\"\x88\x01\n\x0c\x42\x65nchRequest\x12\x0b\n\x03num\x18\x01 \x01(\x05\x12@\n\ndatasource\x18\x02 \x01(\x0e\x32,.malleus.api.service.BenchRequest.Datasource\")\n\nDatasource\x12\x0e\n\nGDATASTORE\x10\x00\x12\x0b\n\x07MONGODB\x10\x01\x32\xa3\x01\n\x0c\x42\x65nchService\x12H\n\x04read\x12!.malleus.api.service.BenchRequest\x1a\x1b.malleus.api.domain.Timings\"\x00\x12I\n\x05write\x12!.malleus.api.service.BenchRequest\x1a\x1b.malleus.api.domain.Timings\"\x00\x62\x06proto3')
   ,
   dependencies=[malleus_dot_api_dot_domain_dot_protos_dot_timings__pb2.DESCRIPTOR,])
 
 
+
+_BENCHREQUEST_DATASOURCE = _descriptor.EnumDescriptor(
+  name='Datasource',
+  full_name='malleus.api.service.BenchRequest.Datasource',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='GDATASTORE', index=0, number=0,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='MONGODB', index=1, number=1,
+      options=None,
+      type=None),
+  ],
+  containing_type=None,
+  options=None,
+  serialized_start=208,
+  serialized_end=249,
+)
+_sym_db.RegisterEnumDescriptor(_BENCHREQUEST_DATASOURCE)
 
 
 _BENCHREQUEST = _descriptor.Descriptor(
@@ -41,11 +63,19 @@ _BENCHREQUEST = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='datasource', full_name='malleus.api.service.BenchRequest.datasource', index=1,
+      number=2, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
+    _BENCHREQUEST_DATASOURCE,
   ],
   options=None,
   is_extendable=False,
@@ -53,10 +83,12 @@ _BENCHREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=112,
-  serialized_end=139,
+  serialized_start=113,
+  serialized_end=249,
 )
 
+_BENCHREQUEST.fields_by_name['datasource'].enum_type = _BENCHREQUEST_DATASOURCE
+_BENCHREQUEST_DATASOURCE.containing_type = _BENCHREQUEST
 DESCRIPTOR.message_types_by_name['BenchRequest'] = _BENCHREQUEST
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -75,8 +107,8 @@ _BENCHSERVICE = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   options=None,
-  serialized_start=142,
-  serialized_end=305,
+  serialized_start=252,
+  serialized_end=415,
   methods=[
   _descriptor.MethodDescriptor(
     name='read',

@@ -5,7 +5,16 @@ package malleus.api.service;
 import "malleus/api/domain/protos/timings.proto";
 
 message BenchRequest {
+
+  enum Datasource {
+    GDATASTORE = 0;
+    MONGODB = 1;
+  }
+
+
   int32 num = 1;
+
+  Datasource datasource = 2;
 }
 
 service BenchService {

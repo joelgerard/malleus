@@ -5,5 +5,6 @@ call_service = CallService("west")
 call_service.write(500)
 
 # print(time.time())
+print ("Calling...")
 call_service.read(500)
 # print(time.time())

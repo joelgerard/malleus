@@ -5,6 +5,7 @@ from malleus.api.domain.timer import Timer
 
 
 
+
 @pytest.fixture
 def bench_service():
     return BenchService()
