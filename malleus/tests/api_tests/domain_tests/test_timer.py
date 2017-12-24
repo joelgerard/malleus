@@ -25,3 +25,14 @@ def test_avg(timer):
     avg = timer.get_avg()
     assert 1.5 == avg
 
+def test_pct():
+    ts = Timings()
+    for i in range(99, -1, -1):
+        t = ts.timings.add()
+        t.start = i
+        t.end = i * 2 + 1
+    timer = Timer(ts)
+    assert 99.01 == timer.get_99p()
+    assert 95.05 == timer.get_95p()
+
+

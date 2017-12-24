@@ -19,7 +19,8 @@ class Timer:
         return timing
 
     def _arr(self):
-        return [(t.end - t.start) for t in self.timings.timings]
+        a = [(t.end - t.start) for t in self.timings.timings]
+        return sorted(a)
 
     def end(self, timing):
         timing.end = time.time()
